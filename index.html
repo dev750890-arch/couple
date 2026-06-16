@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwoHearts - Real-time Couple Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="app-container">
+        
+        <div id="map"></div>
+
+        <header class="glass-panel main-header">
+            <div class="logo-area">
+                <i class="fa-solid fa-heart-pulse heart-icon"></i>
+                <h1>TwoHearts</h1>
+            </div>
+            <div class="status-badge" id="connection-status">
+                <span class="status-dot disconnected"></span>
+                <span id="status-text">Not Connected</span>
+            </div>
+        </header>
+
+        <div class="glass-panel setup-panel" id="setup-panel">
+            <h2>Connect with Partner</h2>
+            <p>Create a private room or join an existing one to share live locations.</p>
+            
+            <div class="action-buttons">
+                <button id="btn-create-room" class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i> Create New Room
+                </button>
+                <div class="divider"><span>OR</span></div>
+                <div class="input-group">
+                    <input type="text" id="room-id-input" placeholder="Enter Partner's Room ID">
+                    <button id="btn-join-room" class="btn btn-secondary">
+                        <i class="fa-solid fa-link"></i> Join
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-panel control-panel hidden" id="control-panel">
+            <div class="room-info">
+                <span class="label">Room ID:</span>
+                <div class="share-code-box">
+                    <code id="display-room-id">------</code>
+                    <button id="btn-copy-id" title="Copy Room ID">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="distance-estimator">
+                <i class="fa-solid fa-route"></i>
+                <div>
+                    <span class="distance-label">Distance Between You</span>
+                    <h3 id="distance-text">Calculating...</h3>
+                </div>
+            </div>
+
+            <div class="panel-actions">
+                <button id="btn-focus-partner" class="btn btn-mini">
+                    <i class="fa-solid fa-location-crosshairs"></i> Find Partner
+                </button>
+                <button id="btn-disconnect" class="btn btn-danger btn-mini">
+                    <i class="fa-solid fa-unlinks"></i> Disconnect
+                </button>
+            </div>
+        </div>
+
+        <footer class="dev-badge">
+            <p>Developed By : Genius (Lin Htet Aung)</p>
+        </footer>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPQG-Pvp9PqsADckF7tXYQ4sZh9YaUXR&callback=initMap" async defer></script>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
